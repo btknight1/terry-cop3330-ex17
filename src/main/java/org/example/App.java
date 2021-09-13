@@ -9,25 +9,83 @@ public class App
 {
     public static void main( String[] args )
     {
-        int gender;
-        int A;
-        int W;
+        boolean tryAgain = false;
+
+        int gender = 0;
+        int A = 0;
+        int W = 0;
+        int H = 0;
+
         final double r_men = 0.73;
         final double r_wom = 0.66;
-        int H;
+
+        String value = "";
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter a 1 is you are male or a 2 if you are female: ");
-        gender = input.nextInt();
+        // Prevent the user from entering non-numeric values.
+        do
+        {
+            System.out.print("Enter a 1 is you are male or a 2 if you are female: ");
+            value = input.nextLine();
+            tryAgain = false;
+            try
+            {
+                gender = Integer.parseInt(value);
+            }
+            catch (NumberFormatException ex)
+            {
+                tryAgain = true;
+            }
+        } while (tryAgain);
 
-        System.out.print("How many ounces of alcohol did you have? ");
-        A = input.nextInt();
 
-        System.out.print("What is your weight, in pounds? ");
-        W = input.nextInt();
+        // Prevent the user from entering non-numeric values.
+        do
+        {
+            System.out.print("How many ounces of alcohol did you have? ");
+            value = input.nextLine();
+            tryAgain = false;
+            try
+            {
+                A = Integer.parseInt(value);
+            }
+            catch (NumberFormatException ex)
+            {
+                tryAgain = true;
+            }
+        } while (tryAgain);
 
-        System.out.print("How many hours has it been since your last drink? ");
-        H = input.nextInt();
+        // Prevent the user from entering non-numeric values.
+        do
+        {
+            System.out.print("What is your weight, in pounds? ");
+            value = input.nextLine();
+            tryAgain = false;
+            try
+            {
+                W = Integer.parseInt(value);
+            }
+            catch (NumberFormatException ex)
+            {
+                tryAgain = true;
+            }
+        } while (tryAgain);
+
+        // Prevent the user from entering non-numeric values.
+        do
+        {
+            System.out.print("How many hours has it been since your last drink? ");
+            value = input.nextLine();
+            tryAgain = false;
+            try
+            {
+                H = Integer.parseInt(value);
+            }
+            catch (NumberFormatException ex)
+            {
+                tryAgain = true;
+            }
+        } while (tryAgain);
 
         double BAC;
         if(gender == 1)
